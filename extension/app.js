@@ -10,7 +10,14 @@ btn.addEventListener('click', ()=>{
         xhr.onload = ()=>{
             var text = xhr.responseText;
             const summrized = document.getElementById("output")
-            summrized.innerHTML = text
+            let arr_text = text.split("---")
+            summrized.innerHTML = arr_text[0]
+            
+            const link_ele = document.getElementById("link_ele")
+            link_ele.innerHTML = arr_text[1]
+            let link_data =  arr_text[1].split(": ")
+            link_ele.href = link_data[1]
+
             btn.disabled = false
             btn.innerHTML = "Derive Sense"
         }

@@ -3,10 +3,13 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from transformers import pipeline
 from flask_cors import CORS
 
+
+from wikipedia_program import main
+
 app = Flask(__name__)
 cors = CORS(app=app, resources={r"/foo": {"origins": "www.youtube.com"}})
 
-def get_transcript(video_id):
+def get_transcript(video_id, url):
     transcript_list = YouTubeTranscriptApi.get_transcript(video_id=video_id)
     transcript = ' '.join([part_transcript['text'] for part_transcript in transcript_list])
     return transcript
@@ -23,8 +26,11 @@ def get_summary(transcript):
 def summary_api():
     url = request.args.get('url', '')
     video_id = url.split("=")[1]
-    summary = get_summary(get_transcript(video_id=video_id))
-    print(summary)
+    summary = get_summary(get_transcript(video_id=video_id, url=url))
+    link = "\nFor more information please visit: " + main(summary)
+    summary = summary + "---" + link 
+
+
     return summary, 200
 
 
