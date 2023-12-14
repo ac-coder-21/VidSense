@@ -1,15 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VidSense</title>
-</head>
-<body>
-    <h1>VidSense</h1>
-    <button id="summarize" type="button">Derive Sense</button>
-    <br>
-    <p id="output"></p>
-    <script src="app.js"></script>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VidSense</title>
+        <style>
+            body {
+                width: max-content;
+                max-width: 800px;
+                background-color: #2b2b2b;
+                color: #ffffff;
+                text-align: center;
+                margin: 0 auto; /* Center the body horizontally */
+            }
+    
+            #button-container {
+
+                display: flex;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+    
+            button {
+                background-color: #61dafb;
+                border: none;
+                color: #ffffff;
+                border-radius: 8px;
+                padding: 10px;
+                font-size: large;
+                border-color: coral;
+            }
+    
+            button[disabled] {
+                background-color: #61dafb;
+                color: #ffffff;
+                border-radius: 8px;
+                padding: 10px;
+                font-size: large;
+                border-color: lightpink;
+            }
+    
+            p {
+                font-size: medium;
+                margin: 20px;
+            }
+    
+            img {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+    
+            /* Added styles for the copy icon */
+            #copy-icon {
+                width: 20px;
+                height: 20px;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="./assets/images/logo.png" alt="" width="200px" height="100px" style="margin-bottom: 10px; align-items: center;">
+    
+        <!-- Centered Button and Copy Icon -->
+        <div id="button-container">
+            <button id="summarize" type="button">Derive Sense</button>
+            <img id="copy-icon" src="https://img.icons8.com/ios-filled/50/ffffff/copy.png" alt="Copy Icon">
+        </div>
+        <br>
+        <p id="output">This is some example text that you can copy.</p>
+        <!-- Added copy icon -->
+    
+        <script src="app.js"></script>
+        <script src="copyScript.js"></script>
+    </body>
+    </html>
+    
