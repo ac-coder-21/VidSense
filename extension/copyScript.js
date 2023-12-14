@@ -1,5 +1,3 @@
-// copyScript.js
-
 document.addEventListener('DOMContentLoaded', function () {
     const outputParagraph = document.getElementById('output');
     const copyIcon = document.getElementById('copy-icon');
