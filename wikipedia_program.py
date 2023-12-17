@@ -18,8 +18,8 @@ def get_bart_summary(paragraph):
 def decide_title_from_summary(summary):
 
     summary_words = summary.split()
-    if len(summary_words) >= 2:
-        return ' '.join(summary_words[:2]).strip()
+    if len(summary_words) >= 1:
+        return ' '.join(summary_words[:1]).strip()
     elif summary_words:
         return summary_words[0].strip()
     else:

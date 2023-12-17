@@ -3,13 +3,15 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from transformers import pipeline
 from flask_cors import CORS
 
-
+from speech_to_text import speech_to_text
 from wikipedia_program import main
 
 app = Flask(__name__)
 cors = CORS(app=app, resources={r"/foo": {"origins": "www.youtube.com"}})
 
 def get_transcript(video_id, url):
+    transcript = ' '
+    transcript = transcript.join(speech_to_text(url))
     transcript_list = YouTubeTranscriptApi.get_transcript(video_id=video_id)
     transcript = ' '.join([part_transcript['text'] for part_transcript in transcript_list])
     return transcript
